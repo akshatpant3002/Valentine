@@ -6,7 +6,49 @@
   <title>Valentines Day</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    .gradient-background {
+    /* Existing styles */
+.gradient-background {
+  background: rgb(255, 208, 229);
+  background: linear-gradient(180deg, rgba(255, 208, 229, 1) 0%, rgba(255, 232, 242, 1) 36%, rgba(255, 255, 255, 1) 100%);
+}
+
+.bounce2 {
+  animation: bounce2 2s ease infinite;
+}
+
+@keyframes bounce2 {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+/* New styles */
+#celebrationContainer {
+  display: none;
+  flex-direction: row;
+  flex: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.celebrationImage {
+  width: 25%; /* Adjust based on your preference */
+  margin: 10px;
+}
+
+.celebrationText {
+  font-size: 50px; /* Adjust based on your preference */
+  color: #bd1e59; /* Same as your existing color */
+  text-align: center;
+}
+
+    /* .gradient-background {
       background: rgb(255, 208, 229);
       background: linear-gradient(180deg, rgba(255, 208, 229, 1) 0%, rgba(255, 232, 242, 1) 36%, rgba(255, 255, 255, 1) 100%);
     }
@@ -25,7 +67,7 @@
       60% {
         transform: translateY(-10px);
       }
-    }
+    } */
   </style>
 </head>
 <body class="gradient-background">
@@ -85,11 +127,46 @@
     });
   
     yesButton.addEventListener('click', () => {
-      imageDisplay.src = './images/image7.gif'; // Change to image7.gif
-      valentineQuestion.textContent = "Yayyy!! :3"; // Change the question text
-      responseButtons.style.display = 'none'; // Hide both buttons
-      confetti(); // Trigger confetti animation
-    });
+  // Create a container for the celebration images and text if it doesn't exist
+  let celebrationContainer = document.getElementById('celebrationContainer');
+  if (!celebrationContainer) {
+    celebrationContainer = document.createElement('div');
+    celebrationContainer.id = 'celebrationContainer';
+    celebrationContainer.className = 'flex items-center justify-center h-screen';
+    document.body.appendChild(celebrationContainer);
+  }
+
+  // Clear existing content
+  celebrationContainer.innerHTML = '';
+
+  // Add images
+  const image7 = document.createElement('img');
+  image7.src = './images/image7.gif';
+  image7.alt = 'Celebration image 7';
+  image7.className = 'celebrationImage';
+
+  const image8 = document.createElement('img');
+  image8.src = './images/image8.jpg';
+  image8.alt = 'Celebration image 8';
+  image8.className = 'celebrationImage';
+
+  // Add celebration text
+  const celebrationText = document.createElement('div');
+  celebrationText.textContent = "Yayyy!! :3";
+  celebrationText.className = 'celebrationText';
+
+  // Append images and text to the container
+  celebrationContainer.appendChild(image7);
+  celebrationContainer.appendChild(image8);
+  celebrationContainer.appendChild(celebrationText);
+
+  // Adjust visibility
+  celebrationContainer.style.display = 'flex';
+  document.querySelector('.flex.items-center.justify-center.h-screen').style.display = 'none'; // Hide the original content
+
+  confetti(); // Trigger confetti animation
+});
+
   </script>  
 </body>
 </html>
