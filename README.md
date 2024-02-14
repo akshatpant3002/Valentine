@@ -25,7 +25,7 @@ Make this Valentine's Day unforgettable with a charming and interactive web expe
    ```bash
    git clone https://github.com/CodeKageHQ/Ask-out-your-Valentine
    ```
-3. Open ```index.html``` in your browser to view the website.
+2. Open `index.html` in your browser to view the website.
 
 No additional setup is required, as Tailwind CSS is included via CDN and JavaScript is embedded within the HTML.
 
@@ -45,4 +45,5 @@ Feel the love? Contributions are welcome! Whether it's a new GIF suggestion, des
 This project is open source and available under [MIT License](LICENSE).
 
 Happy Valentine's Day! Let's spread the love ❤️.
+
 # Valentine
